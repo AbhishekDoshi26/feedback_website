@@ -132,13 +132,24 @@ class _HomeState extends State<Home> {
                         const SizedBox(
                           height: 20.0,
                         ),
+                        FormField(
+                          controller: _feedbackController,
+                          label: StringConstants.feedback,
+                          textInputType: TextInputType.multiline,
+                        ),
+                        const SizedBox(
+                          height: 20.0,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              StringConstants.rating,
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20.0),
+                            Expanded(
+                              child: Text(
+                                StringConstants.rating,
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20.0),
+                              ),
                             ),
                             Expanded(
                               child: SizedBox(
@@ -188,14 +199,6 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                           ],
-                        ),
-                        const SizedBox(
-                          height: 20.0,
-                        ),
-                        FormField(
-                          controller: _feedbackController,
-                          label: StringConstants.feedback,
-                          textInputType: TextInputType.multiline,
                         ),
                         const SizedBox(
                           height: 40.0,

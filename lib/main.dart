@@ -1,6 +1,4 @@
 import 'package:feedback_website/constants/config_constants.dart';
-import 'package:feedback_website/screens/contact.dart';
-import 'package:feedback_website/screens/home.dart';
 import 'package:feedback_website/screens/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';

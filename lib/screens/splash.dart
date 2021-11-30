@@ -56,13 +56,9 @@ class _SplashScreenState extends State<SplashScreen>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Hero(
-              tag: 'logo',
-              child: FlutterLogo(
-                size: logoAnimation.value *
-                    MediaQuery.of(context).size.height /
-                    2,
-              ),
+            FlutterLogo(
+              size:
+                  logoAnimation.value * MediaQuery.of(context).size.height / 2,
             ),
             ShaderMask(
               blendMode: BlendMode.srcIn,

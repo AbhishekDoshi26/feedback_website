@@ -14,6 +14,14 @@ class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
   late AnimationController logoController;
   late Animation logoAnimation;
+
+  @override
+  void dispose() {
+    logoAnimation.removeListener(() {});
+    logoController.dispose();
+    super.dispose();
+  }
+
   @override
   void initState() {
     super.initState();

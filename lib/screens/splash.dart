@@ -16,13 +16,6 @@ class _SplashScreenState extends State<SplashScreen>
   late Animation logoAnimation;
 
   @override
-  void dispose() {
-    logoAnimation.removeListener(() {});
-    logoController.dispose();
-    super.dispose();
-  }
-
-  @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     precacheImage(const AssetImage("assets/avatar.jpg"), context);

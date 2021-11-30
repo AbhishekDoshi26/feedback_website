@@ -2,6 +2,7 @@ import 'package:contactus/contactus.dart';
 import 'package:feedback_website/constants/contact_constants.dart';
 import 'package:feedback_website/constants/string_constant.dart';
 import 'package:feedback_website/main.dart';
+import 'package:feedback_website/screens/contact.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -40,7 +41,11 @@ class _HomeState extends State<Home> {
 
       if (res.status == 200 || res.status == 201 || res.error == null) {
         showSnackBar(StringConstants.thankYou);
-        Navigator.of(context).pushNamed('/contact');
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => const ContactPage(),
+          ),
+        );
       } else {
         if (res.error!.message.contains("does not exist")) {
           showSnackBar(StringConstants.invalidEventID);
@@ -239,7 +244,11 @@ class _HomeState extends State<Home> {
                             Expanded(
                               child: ElevatedButton(
                                 onPressed: () {
-                                  Navigator.of(context).pushNamed('/contact');
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => const ContactPage(),
+                                    ),
+                                  );
                                 },
                                 child: const Text(
                                   'Connect with Speaker!',

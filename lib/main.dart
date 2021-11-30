@@ -22,14 +22,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Feedback Website - Abhishek Doshi',
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const SplashScreen(),
-        '/feedback': (context) => const Home(),
-        '/contact': (context) => const ContactPage(),
-      },
+      home: SplashScreen(),
     );
   }
 }

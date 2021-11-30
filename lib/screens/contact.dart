@@ -38,8 +38,8 @@ class ContactPage extends StatelessWidget {
         ),
         body: ContactUs(
           companyName: ContactDetails.name,
-          textColor: Colors.black,
-          cardColor: Colors.tealAccent,
+          textColor: Colors.white,
+          cardColor: Colors.green,
           companyColor: Colors.white,
           taglineColor: Colors.white,
           email: ContactDetails.emailAddress,

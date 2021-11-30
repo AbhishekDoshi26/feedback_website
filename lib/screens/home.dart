@@ -97,6 +97,9 @@ class _HomeState extends State<Home> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              const SizedBox(
+                height: 20.0,
+              ),
               Image.asset(
                 "assets/flutter.png",
                 height: MediaQuery.of(context).size.height / 5,

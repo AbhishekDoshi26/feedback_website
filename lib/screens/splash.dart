@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:feedback_website/constants/contact_constants.dart';
 import 'package:flutter/material.dart';
-import 'home.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -41,11 +40,7 @@ class _SplashScreenState extends State<SplashScreen>
     Timer(const Duration(seconds: 4), () {
       logoAnimation.removeListener(() {});
       logoController.dispose();
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => const Home(),
-        ),
-      );
+      Navigator.of(context).pushReplacementNamed('/feedback');
     });
   }
 

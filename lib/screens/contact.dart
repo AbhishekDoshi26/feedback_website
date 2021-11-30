@@ -25,6 +25,10 @@ class ContactPage extends StatelessWidget {
         ),
       ),
       child: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+        ),
         backgroundColor: Colors.transparent,
         bottomNavigationBar: ContactUsBottomAppBar(
           backgroundColor: Colors.transparent,

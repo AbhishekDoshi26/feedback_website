@@ -97,7 +97,7 @@ class _HomeState extends State<Home> {
                 height: MediaQuery.of(context).size.height / 5,
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height / 5,
+                height: MediaQuery.of(context).size.height / 10,
               ),
               Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -140,49 +140,51 @@ class _HomeState extends State<Home> {
                               style: const TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20.0),
                             ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width / 2,
-                              child: RatingBar.builder(
-                                initialRating: _ratings,
-                                itemCount: 5,
-                                allowHalfRating: true,
-                                unratedColor: Colors.white,
-                                glow: false,
-                                itemBuilder: (context, index) {
-                                  switch (index) {
-                                    case 0:
-                                      return const Icon(
-                                        Icons.sentiment_very_dissatisfied,
-                                        color: Colors.redAccent,
-                                      );
-                                    case 1:
-                                      return const Icon(
-                                        Icons.sentiment_dissatisfied,
-                                        color: Colors.orange,
-                                      );
-                                    case 2:
-                                      return const Icon(
-                                        Icons.sentiment_neutral,
-                                        color: Colors.yellow,
-                                      );
-                                    case 3:
-                                      return const Icon(
-                                        Icons.sentiment_satisfied,
-                                        color: Colors.lightGreen,
-                                      );
-                                    case 4:
-                                      return const Icon(
-                                        Icons.sentiment_very_satisfied,
-                                        color: Colors.green,
-                                      );
-                                  }
-                                  return Container();
-                                },
-                                onRatingUpdate: (rating) {
-                                  setState(() {
-                                    _ratings = rating;
-                                  });
-                                },
+                            Expanded(
+                              child: SizedBox(
+                                width: MediaQuery.of(context).size.width / 2,
+                                child: RatingBar.builder(
+                                  initialRating: _ratings,
+                                  itemCount: 5,
+                                  allowHalfRating: true,
+                                  unratedColor: Colors.white,
+                                  glow: false,
+                                  itemBuilder: (context, index) {
+                                    switch (index) {
+                                      case 0:
+                                        return const Icon(
+                                          Icons.sentiment_very_dissatisfied,
+                                          color: Colors.redAccent,
+                                        );
+                                      case 1:
+                                        return const Icon(
+                                          Icons.sentiment_dissatisfied,
+                                          color: Colors.orange,
+                                        );
+                                      case 2:
+                                        return const Icon(
+                                          Icons.sentiment_neutral,
+                                          color: Colors.yellow,
+                                        );
+                                      case 3:
+                                        return const Icon(
+                                          Icons.sentiment_satisfied,
+                                          color: Colors.lightGreen,
+                                        );
+                                      case 4:
+                                        return const Icon(
+                                          Icons.sentiment_very_satisfied,
+                                          color: Colors.green,
+                                        );
+                                    }
+                                    return Container();
+                                  },
+                                  onRatingUpdate: (rating) {
+                                    setState(() {
+                                      _ratings = rating;
+                                    });
+                                  },
+                                ),
                               ),
                             ),
                           ],
@@ -201,26 +203,29 @@ class _HomeState extends State<Home> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            ElevatedButton(
-                              onPressed: () async {
-                                if (_formKey.currentState!.validate()) {
-                                  if (_ratings != 0.0) {
-                                    await addData();
-                                  } else {
-                                    showSnackBar(StringConstants.ratingMessage);
+                            Expanded(
+                              child: ElevatedButton(
+                                onPressed: () async {
+                                  if (_formKey.currentState!.validate()) {
+                                    if (_ratings != 0.0) {
+                                      await addData();
+                                    } else {
+                                      showSnackBar(
+                                          StringConstants.ratingMessage);
+                                    }
                                   }
-                                }
-                              },
-                              child: const Text(
-                                'Submit',
-                                style: TextStyle(fontSize: 20.0),
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.green,
-                                padding: const EdgeInsets.all(25.0),
-                                shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(40.0),
+                                },
+                                child: const Text(
+                                  'Submit',
+                                  style: TextStyle(fontSize: 20.0),
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  primary: Colors.green,
+                                  padding: const EdgeInsets.all(25.0),
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(40.0),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -228,20 +233,22 @@ class _HomeState extends State<Home> {
                             const SizedBox(
                               width: 20.0,
                             ),
-                            ElevatedButton(
-                              onPressed: () {
-                                Navigator.of(context).pushNamed('/contact');
-                              },
-                              child: const Text(
-                                'Connect with Speaker!',
-                                style: TextStyle(fontSize: 20.0),
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.green,
-                                padding: const EdgeInsets.all(25.0),
-                                shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(40.0),
+                            Expanded(
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.of(context).pushNamed('/contact');
+                                },
+                                child: const Text(
+                                  'Connect with Speaker!',
+                                  style: TextStyle(fontSize: 20.0),
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  primary: Colors.green,
+                                  padding: const EdgeInsets.all(25.0),
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(40.0),
+                                    ),
                                   ),
                                 ),
                               ),

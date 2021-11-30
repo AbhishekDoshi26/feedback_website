@@ -21,8 +21,6 @@ class _HomeState extends State<Home> {
   double _ratings = 0.0;
   final _formKey = GlobalKey<FormState>();
 
-  
-
   Future<void> addData() async {
     try {
       final res = await supabase.client.from(_eventController.text).insert([
@@ -292,6 +290,8 @@ class FormField extends StatelessWidget {
           child: TextFormField(
             controller: controller,
             keyboardType: textInputType,
+            style: const TextStyle(color: Colors.white),
+            cursorColor: Colors.white,
             validator: (value) => !label.contains(StringConstants.email)
                 ? Validators.emptyValidator(value, label)
                 : Validators.emailValidator(value, label),

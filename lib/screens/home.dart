@@ -21,12 +21,7 @@ class _HomeState extends State<Home> {
   double _ratings = 0.0;
   final _formKey = GlobalKey<FormState>();
 
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    precacheImage(const AssetImage("assets/avatar.jpg"), context);
-    precacheImage(const AssetImage("assets/flutter.png"), context);
-  }
+  
 
   Future<void> addData() async {
     try {

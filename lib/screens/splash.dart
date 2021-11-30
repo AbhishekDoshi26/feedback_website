@@ -23,6 +23,13 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    precacheImage(const AssetImage("assets/avatar.jpg"), context);
+    precacheImage(const AssetImage("assets/flutter.png"), context);
+  }
+
+  @override
   void initState() {
     super.initState();
     logoController = AnimationController(
@@ -38,14 +45,15 @@ class _SplashScreenState extends State<SplashScreen>
       curve: Curves.bounceInOut,
     );
 
-    Timer(
-      const Duration(seconds: 4),
-      () => Navigator.of(context).pushReplacement(
+    Timer(const Duration(seconds: 4), () {
+      logoAnimation.removeListener(() {});
+      logoController.dispose();
+      Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => const Home(),
         ),
-      ),
-    );
+      );
+    });
   }
 
   @override
